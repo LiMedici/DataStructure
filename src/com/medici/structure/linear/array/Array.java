@@ -1,4 +1,4 @@
-package com.medici.structure.linear;
+package com.medici.structure.linear.array;
 
 /**
  * 动态数组(自动扩容，缩容机制)，支持数据集合输入的的增删改查
@@ -24,6 +24,11 @@ public class Array<E> {
         return size;
     }
 
+    // 获取数组容量
+    public int getCapacity(){
+        return data.length;
+    }
+
     // 返回数组是否为空
     public boolean isEmpty(){
         return size == 0;
@@ -34,14 +39,24 @@ public class Array<E> {
         add(0, e);
     }
 
-    // // 向所有元素后添加一个新元素
+    // 向所有元素后添加一个新元素
     public void addLast(E e){
         add(size, e);
     }
 
+    // 获取数组第一个元素
+    public E getFirst(){
+        return get(0);
+    }
+
+    // 获取数组最后一个元素
+    public E getLast(){
+        return get(size - 1);
+    }
+
     // 在index索引的位置插入一个新元素e
     public void add(int index, E e){
-        if(index < 0 || index >= size){
+        if(index < 0 || index > size){
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
 
