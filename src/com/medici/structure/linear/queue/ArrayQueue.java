@@ -1,38 +1,42 @@
-package com.medici.structure.linear.stack;
+package com.medici.structure.linear.queue;
 
 import com.medici.structure.linear.array.Array;
 
 /**
- * 动态数组实现栈 FILO First In Last Out
- * 应用：递归，系统执行方法，括号匹配
+ * 数组队列 FIFO First In First Out 树的广度优先遍历(层序遍历)
+ * 缺点:删除队列元素的复杂度O(n)
  */
-public class ArrayStack<E> implements Stack<E>{
+public class ArrayQueue<E> implements Queue<E>{
 
     private Array<E> array;
 
-    public ArrayStack(){
+    public ArrayQueue(){
         this(10);
     }
 
-    public ArrayStack(int capacity) {
-        this.array = new Array<>(capacity);
+    public ArrayQueue(int capacity){
+        array = new Array<E>(capacity);
     }
 
     @Override
-    public void push(E e) {
-        // 栈顶添加元素
+    public void enqueue(E e) {
+        // 队尾添加一个
         array.addLast(e);
     }
 
     @Override
-    public E pop() {
-        // 栈顶弹出元素
-        return array.removeLast();
+    public E dequeue() {
+        return array.removeFirst();
     }
 
     @Override
     public E peek() {
         return array.getLast();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return array.isEmpty();
     }
 
     @Override
@@ -46,21 +50,16 @@ public class ArrayStack<E> implements Stack<E>{
     }
 
     @Override
-    public boolean isEmpty() {
-        return array.isEmpty();
-    }
-
-    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Stack: [");
+        stringBuilder.append("Queue: front [");
         for (int i = 0; i < array.getSize(); i++){
             stringBuilder.append(array.get(i));
             if(i != array.getSize() - 1){
                 stringBuilder.append(", ");
             }
         }
-        stringBuilder.append("] top");
+        stringBuilder.append("] tail");
         return stringBuilder.toString();
     }
 }
