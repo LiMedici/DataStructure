@@ -1,8 +1,6 @@
 package com.medici.structure;
 
-import com.medici.structure.linear.queue.ArrayQueue;
-import com.medici.structure.linear.queue.LoopQueue;
-import com.medici.structure.linear.stack.ArrayStack;
+import com.medici.structure.linear.linked.LinkedList;
 
 import java.util.Random;
 
@@ -21,7 +19,7 @@ public class Main {
         }
         System.out.println(stack);*/
 
-        LoopQueue<Integer> queue = new LoopQueue<>(5);
+        /*LoopQueue<Integer> queue = new LoopQueue<>(5);
         Random random = new Random();
         for (int index = 0; index < 10; index ++){
             if(index % 3 != 2){
@@ -31,6 +29,18 @@ public class Main {
             }
             System.out.println(queue);
         }
-        System.out.println(queue);
+        System.out.println(queue);*/
+
+        LinkedList<Integer> list = new LinkedList<>();
+        Random random = new Random();
+        for (int index = 0; index < 10; index ++){
+            if(index % 3 != 2){
+                list.addLast(random.nextInt(Integer.MAX_VALUE));
+            }else{
+                list.removeLast();
+            }
+            System.out.println(list);
+        }
+        System.out.println(list);
     }
 }

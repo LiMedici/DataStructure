@@ -2,6 +2,7 @@ package com.medici.structure.linear.array;
 
 /**
  * 动态数组(自动扩容，缩容机制)，支持数据集合输入的的增删改查
+ * 固定容量
  */
 public class Array<E> {
 
