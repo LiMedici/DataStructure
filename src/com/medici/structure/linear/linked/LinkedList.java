@@ -2,6 +2,7 @@ package com.medici.structure.linear.linked;
 
 /**
  * 动态数据结构 链表天然的递归性
+ * 形态: 数组链表(适用知道有多少链表元素)，双向链表，循环链表(dummyHead，Java LinkedList)
  * 优点：动态数据结构，不需要扩容缩容
  * 缺点：内存是不连续的，不方便查询
  */
