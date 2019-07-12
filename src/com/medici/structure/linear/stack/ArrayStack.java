@@ -4,7 +4,7 @@ import com.medici.structure.linear.array.Array;
 
 /**
  * 动态数组实现栈 FILO First In Last Out
- * 应用：递归，系统执行方法，括号匹配
+ * 应用：递归，程序调用的系统栈，括号匹配
  */
 public class ArrayStack<E> implements Stack<E>{
 

@@ -1,7 +1,7 @@
 package com.medici.structure.linear.linked;
 
 /**
- * 动态数据结构
+ * 动态数据结构 链表天然的递归性
  * 优点：动态数据结构，不需要扩容缩容
  * 缺点：内存是不连续的，不方便查询
  */
