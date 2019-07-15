@@ -1,8 +1,6 @@
 package com.medici.structure;
 
-import com.medici.structure.linear.linked.LinkedList;
-import com.medici.structure.linear.stack.LinkedQueue;
-import com.medici.structure.linear.stack.LinkedStack;
+import com.medici.structure.linear.queue.LinkedQueue;
 
 import java.util.Random;
 

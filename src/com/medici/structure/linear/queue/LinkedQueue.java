@@ -1,4 +1,4 @@
-package com.medici.structure.linear.stack;
+package com.medici.structure.linear.queue;
 
 import com.medici.structure.linear.queue.Queue;
 

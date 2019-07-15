@@ -1,4 +1,4 @@
-package com.medici.structure.linear;
+package com.medici.structure.linear.recursion;
 
 /**
  * 最小的子问题求解，组合成原问题的问题
