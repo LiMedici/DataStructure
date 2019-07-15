@@ -59,14 +59,10 @@ public class RecursionLinkedList<E> {
     // 在以node为头结点的链表的index位置插入元素e，递归算法
     public Node add(Node node,int index,E e){
         if(index == 0){
-            if(node != null){
-                return new Node(e,node.next);
-            }else{
-                return new Node(e);
-            }
+            return new Node(e,node);
         }
 
-        node.next = add(node,index - 1, e);
+        node.next = add(node.next,index - 1, e);
 
         return node;
     }
