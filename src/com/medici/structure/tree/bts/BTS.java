@@ -2,8 +2,8 @@ package com.medici.structure.tree.bts;
 
 /**
  * 二分搜索树(二叉树，不是一颗满二叉树)
- * 定义: 二叉树的节点大于其左子树的根节点，小于右子树的根节点
- *      二叉搜索树定义不包含重复元素
+ * 定义: 二分搜索树的节点大于其左子树的根节点，小于右子树的根节点
+ *      二分搜索树定义不包含重复元素
  */
 public class BTS<E extends Comparable<E>> {
 
@@ -25,30 +25,27 @@ public class BTS<E extends Comparable<E>> {
         }
     }
 
-    // 返回二叉搜索树的节点个数
+    // 返回二分搜索树的节点个数
     public int getSize(){
         return size;
     }
 
-    // 返回二叉搜索树是否为空
+    // 返回二分搜索树是否为空
     public boolean isEmpty(){
         return size == 0;
     }
 
-    // 向二叉搜索树添加一个元素e
+    // 向二分搜索树中添加新的元素e
     public Node add(E e){
         return root = add(root,e);
     }
 
-    // 向node为节点的二叉搜索树添加一个元素e
-    // 并返回此二叉搜索树的根
+    // 向以node为根的二分搜索树中插入元素e，递归算法
+    // 返回插入新节点后二分搜索树的根
     private Node add(Node node,E e){
         if(node == null){
+            size ++;
             return new Node(e);
-        }
-
-        if(node.e.compareTo(e) == 0){
-            return node;
         }
 
         if(node.e.compareTo(e) > 0){
@@ -60,12 +57,12 @@ public class BTS<E extends Comparable<E>> {
         return node;
     }
 
-    // 二叉搜索树搜索是否包含某个节点
+    // 二分搜索树中是否包含元素e
     public boolean contains(E e){
         return contains(root,e);
     }
 
-    // 以node为根的二叉搜索树搜索是否包含某个节点
+    // 以node为根的二分搜索树中是否包含元素e, 递归算法
     private boolean contains(Node node,E e){
         if(node == null) return false;
         if(node.e.compareTo(e) == 0) return true;
@@ -77,7 +74,7 @@ public class BTS<E extends Comparable<E>> {
         }
     }
 
-    // 二叉搜索树的前序遍历
+    // 二分搜索树的前序遍历
     public void preOrder(){
         preOrder(root);
     }
@@ -90,7 +87,7 @@ public class BTS<E extends Comparable<E>> {
         preOrder(node.right);
     }
 
-    // 二叉搜索树的中序遍历(应用:排序)
+    // 二分搜索树的中序遍历(应用:排序)
     public void inOrder(){
         inOrder(root);
     }
@@ -103,7 +100,7 @@ public class BTS<E extends Comparable<E>> {
         inOrder(node.right);
     }
 
-    // 二叉搜索树的后续遍历(应用:二叉搜索树的内存释放)
+    // 二分搜索树的后序遍历(应用:二分搜索树的内存释放)
     public void postOrder(){
         postOrder(root);
     }
