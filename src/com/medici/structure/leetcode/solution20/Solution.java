@@ -1,4 +1,6 @@
-package com.medici.structure.linear.recursion;
+package com.medici.structure.leetcode.solution20;
+
+import com.medici.structure.linear.recursion.RecursionLinkedStack;
 
 /**
  * Leetcode 20. Valid Parentheses
