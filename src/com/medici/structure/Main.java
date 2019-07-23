@@ -71,17 +71,29 @@ public class Main {
             bst.add(arr[i]);
         }
 
-        bst.preOrder();
+        /*bst.preOrder();
         System.out.println("---------------------");
         bst.preOrderNR();
         System.out.println("---------------------");
         bst.levelOrder();
         System.out.println("---------------------");
-        /*bst.inOrder();
+        bst.inOrder();
         System.out.println("---------------------");
         bst.postOrder();
         System.out.println("---------------------");
         System.out.println(bst);*/
+
+        System.out.println(bst.minimum());
+        System.out.println(bst.maximum());
+
+        bst.removeMin();
+        System.out.println(bst);
+
+        bst.removeMax();
+        System.out.println(bst);
+
+        bst.remove(4);
+        System.out.println(bst);
     }
 
 }
