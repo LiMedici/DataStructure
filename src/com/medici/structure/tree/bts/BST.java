@@ -1,5 +1,10 @@
 package com.medici.structure.tree.bts;
 
+import com.medici.structure.linear.queue.ArrayQueue;
+import com.medici.structure.linear.queue.Queue;
+import com.medici.structure.linear.stack.ArrayStack;
+import com.medici.structure.linear.stack.Stack;
+
 /**
  * 二分搜索树(二叉树，不是一颗满二叉树) 动态数据结构,具有天然的递归性质
  * 定义: 每一颗子树也是二分搜索树
@@ -14,7 +19,7 @@ package com.medici.structure.tree.bts;
  * 1、深度优先遍历：前序遍历，中序遍历，后序遍历
  * 2、广度优先遍历：层序遍历，按层从左到右进行遍历
  */
-public class BTS<E extends Comparable<E>> {
+public class BST<E extends Comparable<E>> {
 
     private Node root;
     private int size;
@@ -138,6 +143,55 @@ public class BTS<E extends Comparable<E>> {
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.e);
+    }
+
+    /**
+     * 二分搜索树的前序遍历(非递归写法)
+     */
+    public void preOrderNR(){
+        if(root == null){
+            throw new IllegalArgumentException("tree is empty");
+        }
+
+        Stack<Node> stack = new ArrayStack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+
+            // 栈后进先出，所以先压入右孩子
+            if(cur.right != null){
+                stack.push(cur.right);
+            }
+
+            if(cur.left != null){
+                stack.push(cur.left);
+            }
+        }
+    }
+
+    /**
+     * 二叉树的层序遍历(广度优先遍历)
+     */
+    public void levelOrder(){
+        if(root == null){
+            throw new IllegalArgumentException("tree is empty");
+        }
+
+        Queue<Node> queue = new ArrayQueue<>();
+        queue.enqueue(root);
+        while (!queue.isEmpty()){
+            Node cur = queue.dequeue();
+            System.out.println(cur.e);
+
+            if(cur.left != null){
+                queue.enqueue(cur.left);
+            }
+
+            if(cur.right != null){
+                queue.enqueue(cur.right);
+            }
+        }
     }
 
     @Override
