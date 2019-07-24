@@ -1,4 +1,4 @@
-package com.medici.structure.tree.bts;
+package com.medici.structure.tree.bst;
 
 import com.medici.structure.linear.queue.ArrayQueue;
 import com.medici.structure.linear.queue.Queue;
@@ -18,6 +18,8 @@ import com.medici.structure.linear.stack.Stack;
  * 遍历分类：
  * 1、深度优先遍历：前序遍历，中序遍历，后序遍历
  * 2、广度优先遍历：层序遍历，按层从左到右进行遍历
+ * 3、前序非递归方式遍历：使用栈数据结构，因为后进先出原则，先右孩子入栈，再左孩子入栈
+ * 4、层序遍历：使用队列数据结构，因为先进先出原则，先左孩子入队，再右孩子入队
  */
 public class BST<E extends Comparable<E>> {
 

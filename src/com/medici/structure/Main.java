@@ -1,6 +1,6 @@
 package com.medici.structure;
 
-import com.medici.structure.tree.bts.BST;
+import com.medici.structure.tree.bst.BST;
 
 public class Main {
 
