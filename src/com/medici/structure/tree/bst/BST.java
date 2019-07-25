@@ -70,7 +70,7 @@ public class BST<E extends Comparable<E>> {
             // 由于递归的add方法的语义是添加新元素, 并返回新的二分搜索树的根节点
             // 所以这里需要使用node.left = add(node.left, e), 接收递归方法返回的值
             node.left = add(node.left, e);
-        } else {
+        } else if(node.e.compareTo(e) < 0){
             // 添加的元素小于当前元素, 向右递归
             node.right = add(node.right, e);
         }
