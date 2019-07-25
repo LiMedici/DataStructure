@@ -1,4 +1,5 @@
-package com.medici.structure.leetcode.solution203;/// Leetcode 203. Remove Linked List Elements
+package com.medici.structure.leetcode.solution203;
+/// Leetcode 203. Remove Linked List Elements
 /// https://leetcode.com/problems/remove-linked-list-elements/description/
 
 class Solution3 {
