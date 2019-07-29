@@ -27,7 +27,7 @@ public class TreeMap<K extends Comparable<K>,V> implements Map<K,V>{
             return new Node(key,value);
         }
 
-        if(node.key.compareTo(key) <= 0){
+        if(node.key.compareTo(key) < 0){
             node.left = put(node.left,key,value);
         }else if(node.key.compareTo(key) > 0){
             node.right = put(node.right,key,value);

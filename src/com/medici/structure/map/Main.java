@@ -38,7 +38,7 @@ public class Main {
 
         TreeMap<String, Integer> treeMap = new TreeMap<>();
         double time1 = testMap(treeMap, filename);
-        System.out.println("BST Map: " + time1 + " s");
+        System.out.println("Tree Map: " + time1 + " s");
 
         System.out.println();
 
