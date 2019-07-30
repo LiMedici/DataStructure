@@ -5,6 +5,7 @@ import com.medici.structure.linear.queue.Queue;
 
 /**
  * 基于最大堆数据结构设计的优先队列
+ * 性质：出队顺序和入队顺序无关, 和优先级相关
  */
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 

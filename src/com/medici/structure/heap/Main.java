@@ -1,6 +1,7 @@
 package com.medici.structure.heap;
 
 import com.medici.structure.heap.max.MaxHeap;
+import com.medici.structure.heap.min.MinHeap;
 
 import java.util.Random;
 
@@ -10,22 +11,24 @@ public class Main {
 
         long startTime = System.nanoTime();
 
-        MaxHeap<Integer> maxHeap;
+        MinHeap<Integer> minHeap;
         if(isHeapify)
-            maxHeap = new MaxHeap<>(testData);
+            minHeap = new MinHeap<>(testData);
         else{
-            maxHeap = new MaxHeap<>();
+            minHeap = new MinHeap<>();
             for(int num: testData)
-                maxHeap.add(num);
+                minHeap.add(num);
         }
 
         int[] arr = new int[testData.length];
         for(int i = 0 ; i < testData.length ; i ++)
-            arr[i] = maxHeap.extractMax();
+            arr[i] = minHeap.extractMin();
 
         for(int i = 1 ; i < testData.length ; i ++)
-            if(arr[i-1] < arr[i])
+            if(arr[i-1] > arr[i])
                 throw new IllegalArgumentException("Error");
+
+        printArr(arr);
         System.out.println("Test MaxHeap completed.");
 
         long endTime = System.nanoTime();
@@ -33,14 +36,27 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
 
+    private static void printArr(int[] arr){
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+        for (int i = 0; i < arr.length; i++) {
+            result.append(arr[i]);
+            if(i != arr.length - 1){
+                result.append(",");
+            }
+        }
+        result.append("]");
+        System.out.println(result);
+    }
+
     public static void main(String[] args) {
 
-        int n = 1000000;
+        int n = 1000;
 
         Random random = new Random();
         Integer[] testData = new Integer[n];
         for(int i = 0 ; i < n ; i ++)
-            testData[i] = random.nextInt(Integer.MAX_VALUE);
+            testData[i] = random.nextInt(n);
 
         double time1 = testHeap(testData, false);
         System.out.println("Without heapify: " + time1 + " s");

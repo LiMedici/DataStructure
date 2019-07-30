@@ -5,7 +5,7 @@ import com.medici.structure.linear.array.Array;
 /**
  * 最大堆(完全二叉树，可以使用数组数据结构)，并不是一颗满的二叉树
  * 性质1:二叉堆是一颗完全二叉树
- * 性质2:堆中某个节点的值总是大于等于(或小于等于)其子节点, 对应的就是最大堆和最小堆
+ * 性质2:堆中某个节点的值总是大于等于其子节点, 就是最大堆
  */
 public class MaxHeap<E extends Comparable<E>> {
 
@@ -120,14 +120,6 @@ public class MaxHeap<E extends Comparable<E>> {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append("[");
-        while (!isEmpty()){
-            result.append(extractMax());
-            if(!isEmpty())
-                result.append(",");
-        }
-        result.append("]");
-        return result.toString();
+        return array.toString();
     }
 }
