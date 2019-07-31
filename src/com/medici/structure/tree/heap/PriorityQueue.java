@@ -1,7 +1,7 @@
-package com.medici.structure.heap;
+package com.medici.structure.tree.heap;
 
-import com.medici.structure.heap.max.MaxHeap;
 import com.medici.structure.linear.queue.Queue;
+import com.medici.structure.tree.heap.max.MaxHeap;
 
 /**
  * 基于最大堆数据结构设计的优先队列

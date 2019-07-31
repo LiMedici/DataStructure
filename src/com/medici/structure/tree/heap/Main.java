@@ -1,7 +1,6 @@
-package com.medici.structure.heap;
+package com.medici.structure.tree.heap;
 
-import com.medici.structure.heap.max.MaxHeap;
-import com.medici.structure.heap.min.MinHeap;
+import com.medici.structure.tree.heap.min.MinHeap;
 
 import java.util.Random;
 

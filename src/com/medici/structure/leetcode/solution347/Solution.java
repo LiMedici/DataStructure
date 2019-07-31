@@ -4,7 +4,7 @@ package com.medici.structure.leetcode.solution347;
 ///
 /// 该代码主要用于使用Leetcode上的问题测试我们的Priority Queue类
 
-import com.medici.structure.heap.PriorityQueue;
+import com.medici.structure.tree.heap.PriorityQueue;
 
 import java.util.LinkedList;
 import java.util.List;

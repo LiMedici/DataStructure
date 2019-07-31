@@ -1,4 +1,4 @@
-package com.medici.structure.heap.max;
+package com.medici.structure.tree.heap.max;
 
 import com.medici.structure.linear.array.Array;
 

@@ -1,4 +1,4 @@
-package com.medici.structure.heap.min;
+package com.medici.structure.tree.heap.min;
 
 import com.medici.structure.linear.array.Array;
 
