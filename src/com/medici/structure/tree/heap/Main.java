@@ -28,7 +28,7 @@ public class Main {
                 throw new IllegalArgumentException("Error");
 
         printArr(arr);
-        System.out.println("Test MaxHeap completed.");
+        System.out.println("Test MinHeap completed.");
 
         long endTime = System.nanoTime();
 
@@ -50,7 +50,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int n = 1000;
+        int n = 10000000;
 
         Random random = new Random();
         Integer[] testData = new Integer[n];
