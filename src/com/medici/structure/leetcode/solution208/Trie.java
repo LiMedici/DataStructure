@@ -1,9 +1,10 @@
-package com.medici.structure.leetcode.solution208;/// 208. Implement Trie (Prefix Tree)
+package com.medici.structure.leetcode.solution208;
+/// 208. Implement Trie (Prefix Tree)
 /// https://leetcode.com/problems/implement-trie-prefix-tree/description/
 
 import java.util.TreeMap;
 
-public class Trie208 {
+public class Trie {
 
     private class Node{
 
@@ -22,7 +23,7 @@ public class Trie208 {
 
     private Node root;
 
-    public Trie208(){
+    public Trie(){
         root = new Node();
     }
 

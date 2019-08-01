@@ -1,5 +1,8 @@
 package com.medici.structure.tree.trie;
 
+import com.medici.structure.linear.stack.ArrayStack;
+import com.medici.structure.linear.stack.Stack;
+
 import java.util.HashMap;
 
 /**
@@ -52,6 +55,43 @@ public class Trie {
             cur.isWord = true;
             size++;
         }
+    }
+
+    // 删除word, 返回是否删除成功
+    public boolean remove(String word){
+
+        // 将搜索沿路的节点放入栈中
+        Stack<Node> stack = new ArrayStack<>();
+        stack.push(root);
+        for(int i = 0; i < word.length(); i ++){
+            if(!stack.peek().next.containsKey(word.charAt(i)))
+                return false;
+            stack.push(stack.peek().next.get(word.charAt(i)));
+        }
+
+        if(!stack.peek().isWord)
+            return false;
+
+        // 将该单词结尾isWord置空
+        stack.peek().isWord = false;
+        size --;
+
+        // 如果单词最后一个字母的节点的next非空，
+        // 说明trie中还存储了其他以该单词为前缀的单词，直接返回
+        if(stack.peek().next.size() > 0)
+            return true;
+        else
+            stack.pop();
+
+        // 自底向上删除
+        for(int i = word.length() - 1; i >= 0; i --){
+            stack.peek().next.remove(word.charAt(i));
+            // 如果一个节点的isWord为true，或者是其他单词的前缀，则直接返回
+            if(stack.peek().isWord || stack.peek().next.size() > 0)
+                return true;
+            stack.pop();
+        }
+        return true;
     }
 
     // 查询单词word是否在Trie中
