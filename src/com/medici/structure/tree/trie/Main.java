@@ -1,7 +1,5 @@
 package com.medici.structure.tree.trie;
 
-import com.medici.structure.set.Set;
-import com.medici.structure.tool.FileOperation;
 import java.util.ArrayList;
 
 public class Main {
