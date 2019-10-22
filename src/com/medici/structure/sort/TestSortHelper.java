@@ -1,5 +1,6 @@
-package com.medici.structure.sort.selection;
+package com.medici.structure.sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -20,6 +21,48 @@ public class TestSortHelper {
         return arr;
     }
 
+    /**
+     * 生成一个近有序的数组，发生swapTimes次数交换
+     */
+    public static Integer[] generateNearlyOrderedIntArray(int n, int swapTimes){
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; i++){
+            arr[i] = i;
+        }
+
+        Random random = new Random();
+        for (int i = 0; i < swapTimes; i++) {
+            int x = random.nextInt(n);
+            int y = random.nextInt(n);
+            //发生交换
+            swap(arr,x,y);
+        }
+
+        return arr;
+    }
+
+    // copy一个int数组
+    public static int[] copyIntArray(int[] arr, int n){
+        return Arrays.copyOf(arr,n);
+    }
+
+    // copy一个int数组
+    public static Integer[] copyIntArray(Integer[] arr, int n){
+        Integer dest[] = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            dest[i] = new Integer(arr[i]);
+        }
+
+        return dest;
+    }
+
+    // 交互元素
+    public static void swap(Integer[] arr,int i, int j){
+        Integer temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
     // 测试排序算法的运行时间
     public static void testSort(String sortName,Integer arr[],int n, Action action){
         long startTime = System.nanoTime();
@@ -35,6 +78,7 @@ public class TestSortHelper {
             }
         }
 
+        System.out.println();
         for (int i = 1; i < n; i++){
             if(arr[i-1] > arr[i]){
                 System.out.println("sort error");
