@@ -41,7 +41,7 @@ public class InsertionSort<N extends Comparable> {
             for(j = i; j > 0 && arr[j - 1].compareTo(e) > 0; j--){
                 arr[j] = arr[j - 1];
             }
-            // 找到e的位置了
+            // 注意j - 1位置不满足交换的条件, 所以是j , 找到e的位置了
             arr[j] = e;
         }
     }
