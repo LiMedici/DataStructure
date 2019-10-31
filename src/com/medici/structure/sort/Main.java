@@ -3,6 +3,7 @@ package com.medici.structure.sort;
 import com.medici.structure.sort.bubble.BubbleSort;
 import com.medici.structure.sort.cocktail.CocktailSort;
 import com.medici.structure.sort.insertion.InsertionSort;
+import com.medici.structure.sort.merge.MergeSort;
 import com.medici.structure.sort.selection.SelectionSort;
 import com.medici.structure.sort.shell.ShellSort;
 
@@ -14,6 +15,7 @@ public class Main {
         Integer arr3[] = TestSortHelper.copyIntArray(arr1,n);
         Integer arr4[] = TestSortHelper.copyIntArray(arr1,n);
         Integer arr5[] = TestSortHelper.copyIntArray(arr1,n);
+        Integer arr6[] = TestSortHelper.copyIntArray(arr1,n);
         TestSortHelper.testSort("Selection Sort", arr1, n, new Action() {
             @Override
             public void sort(Integer[] arr, int n) {
@@ -51,6 +53,14 @@ public class Main {
             public void sort(Integer[] arr, int n) {
                 ShellSort sort = new ShellSort(arr,n);
                 sort.invokeSort2();
+            }
+        });
+
+        TestSortHelper.testSort("Merge Sort", arr6, n, new Action() {
+            @Override
+            public void sort(Integer[] arr, int n) {
+                MergeSort sort = new MergeSort(arr,n);
+                sort.invokeSort3();
             }
         });
     }
