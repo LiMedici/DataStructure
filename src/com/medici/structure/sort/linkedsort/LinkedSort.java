@@ -1,7 +1,14 @@
 package com.medici.structure.sort.linkedsort;
 
-public class LinkedSort {
+/**
+ * 使用归并排序自顶向下实现链表的排序
+ */
+public class LinkedSort<E> {
     private Node root;
+
+    public Node getRoot() {
+        return root;
+    }
 
     public static class Node<E extends Comparable>{
         public E e;
@@ -21,8 +28,26 @@ public class LinkedSort {
         }
     }
 
-    public LinkedSort(Node root){
-        this.root = root;
+    public LinkedSort(E[] arr){
+        Node head = new Node();
+        Node temp = head;
+        for (int i = 0; i < arr.length; i++){
+            temp.next = new Node(i);
+            temp = temp.next;
+        }
+
+        this.root = head.next;
+    }
+
+    // 打印以head为头节点的链表信息内容
+    public void printNodes(Node node){
+        while (node != null){
+            System.out.print(node.e);
+            if(node.next != null){
+                System.out.print(",");
+            }
+            node = node.next;
+        }
     }
 
 
@@ -30,7 +55,9 @@ public class LinkedSort {
      * 对链表结构进行归并排序,并返回排序后链表的头节点
      */
     public Node startSort(){
-        return sort(root);
+        Node result = sort(root);
+        this.root = result;
+        return result;
     }
 
     /**
@@ -42,7 +69,7 @@ public class LinkedSort {
 
         Node slow = findMiddle(root);
         Node after = slow.next;
-        // 第一个链表的终止条件
+        // 链表切割
         slow.next = null;
         return mergeNode(sort(root),sort(after));
     }
@@ -89,6 +116,14 @@ public class LinkedSort {
         temp.next = (before == null) ? after : before;
 
         return head.next;
+    }
+
+    public void fillInArray(Comparable[] array){
+        Node root = this.root;
+        for (int i = 0; root != null && i < array.length; i++){
+            array[i] = root.e;
+            root = root.next;
+        }
     }
 
 }
