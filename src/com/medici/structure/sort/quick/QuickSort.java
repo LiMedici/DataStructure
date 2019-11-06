@@ -43,7 +43,7 @@ public class QuickSort<N extends Comparable> {
     }
 
     /**
-     * 进行partition操作，找到p的坐标，使得返回的p坐标，保持arr[l...j] < v, arr[j+1...r] > v
+     * 进行partition操作，找到p的坐标，使得返回的p坐标，保持arr[l+1...j] < v, arr[j+1...i-1] > v
      */
     private int partition(N[] arr , int l, int r){
         // 对于接近于有序的数组，如果使用第一个数组位置作为标定为，会退化成链表
@@ -90,7 +90,7 @@ public class QuickSort<N extends Comparable> {
     }
 
     /**
-     * 对arr[l...r]进行partition操作，最终保持arr[l...i) <= v, arr[j...r] >= v, i >= j 快速排序结束
+     * 对arr[l...r]进行partition操作，最终保持arr[l+1...i) <= v, arr(j...r] >= v, i > j 快速排序结束
      */
     private int partition2(N[] arr, int l , int r){
         // 对于接近于有序的数组，如果使用第一个数组位置作为标定为，会退化成链表
@@ -98,8 +98,22 @@ public class QuickSort<N extends Comparable> {
         swap(arr, l , position);
         // 使用随机位置作为标定为，数学期望会进行log(n)次递归，但是还是可能退出成链表
         N v = arr[l];
-        int i = l + 1, j = r + 1;
-        return i;
+        int i = l + 1, j = r;
+        while (true){
+            while (i <= r && arr[i].compareTo(v) < 0) i++;
+            while (j >= l + 1 && arr[j].compareTo(v) > 0) j--;
+            if(i > j) break;
+            swap(arr, i, j);
+            i++;
+            j--;
+        }
+
+        // 整个循环结束的时候
+        // i这个索引停在了从前到后看，第一个>=V的元素的位置
+        // j这个索引停在了从后到前看，第一个<=V的元素的位置，整个数组最后一个<=V元素的位置
+        swap(arr , l , j);
+
+        return j;
     }
 
 

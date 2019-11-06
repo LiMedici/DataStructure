@@ -70,7 +70,7 @@ public class Main {
             @Override
             public void sort(Integer[] arr, int n) {
                 QuickSort sort = new QuickSort(arr,n);
-                sort.invokeSort();
+                sort.invokeSort2();
             }
         });
     }
