@@ -116,6 +116,53 @@ public class QuickSort<N extends Comparable> {
         return j;
     }
 
+    /**
+     * 三路快排算法，优化双路快排算法，当数组有很多重复元素的时候，每一次都将重复的元素包含做分割，影响了算法性能
+     */
+    public void invokeSort3(){
+        quickSort3(arr, 0 , n - 1);
+    }
+
+    /**
+     * 对arr[l...r]进行一趟快速排序
+     */
+    private void quickSort3(N[] arr , int l, int r){
+        // 快速排序的优化，数组元素相对较少，使用插入排序效率最高
+        if(r - l + 1 <= 16){
+            insertSort(arr, l , r);
+            return;
+        }
+
+        // 对于接近于有序的数组，如果使用第一个数组位置作为标定为，会退化成链表
+        int position = l + random.nextInt(r - l + 1);
+        swap(arr, l , position);
+        // 使用随机位置作为标定为，数学期望会进行log(n)次递归，但是还是可能退出成链表
+        N v = arr[l];
+
+        // 进行partition操作，使得arr[l+1...lt] < V,arr[lt+1,i) == V, arr[gt,r] > V
+        int lt = l;
+        int gt = r + 1;
+        int i = l + 1;
+
+        while(i < gt){
+            if(arr[i].compareTo(v) == 0){
+                i++;
+            }else if(arr[i].compareTo(v) < 0){
+                swap(arr,i,lt + 1);
+                lt++;
+                i++;
+            }else if(arr[i].compareTo(v) > 0){
+                swap(arr,i,gt - 1);
+                gt--;
+            }
+        }
+
+        swap(arr, l, lt);
+
+        quickSort3(arr,l, lt - 1);
+        quickSort3(arr,gt, r);
+    }
+
 
 
     // 交互元素
