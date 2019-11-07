@@ -72,6 +72,21 @@ public class TestSortHelper {
         }
     }
 
+    /**
+     * 判断是否完全有序
+     */
+    public static boolean isOrdered( Comparable[] arr ){
+        int diff = 0;
+        for (int i = 1; i < arr.length; i++){
+            int newDiff = arr[i - 1].compareTo(arr[i]);
+            if(diff + newDiff == 0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     // copy一个int数组
     public static int[] copyIntArray(int[] arr, int n){
         return Arrays.copyOf(arr,n);

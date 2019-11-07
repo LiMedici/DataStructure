@@ -52,12 +52,12 @@ public class InversionCount {
             if(i > middle){
                 // 如果左半部分元素已经全部处理完毕
                 arr[k] = aux[j - l];
-                j--;
+                j++;
             }else if(j > r){
                 // 如果右半部分元素已经全部处理完毕
                 arr[k] = aux[i - l];
                 i++;
-            }else if(arr[i].compareTo(arr[j]) <= 0){
+            }else if(aux[i - l].compareTo(aux[j - l]) <= 0){
                 // 左半部分所指元素 <= 右半部分所指元素
                 arr[k] = aux[i - l];
                 i++;
@@ -68,7 +68,7 @@ public class InversionCount {
                 // 此时, 因为右半部分k所指的元素小
                 // 这个元素和左半部分的所有未处理的元素都构成了逆序数对
                 // 左半部分此时未处理的元素个数为 mid - i + 1
-                result = result + middle - i + 1;
+                result = result + (middle - i + 1);
             }
         }
 
