@@ -77,9 +77,24 @@ public class InversionCount {
 
     public static void main(String[] args) {
         int n = 10000;
+        // 测试1: 测试随机数组
         Integer arr[] = TestSortHelper.generateIntArray(n,0, n);
         InversionCount count = new InversionCount(arr, n);
         int result = count.findInversionCount(0, n - 1);
+        System.out.println("Inversion Count number is : " + result);
+
+        // 测试2: 测试完全有序的数组
+        // 结果应该为0
+        arr = TestSortHelper.generateOrderedArray(n);
+        count = new InversionCount(arr, n);
+        result = count.findInversionCount(0, n - 1);
+        System.out.println("Inversion Count number is : " + result);
+
+        // 测试3: 测试完全逆序的数组
+        // 结果应该为 N*(N-1)/2
+        arr = TestSortHelper.generateInversedArray(n);
+        count = new InversionCount(arr, n);
+        result = count.findInversionCount(0, n - 1);
         System.out.println("Inversion Count number is : " + result);
     }
 
